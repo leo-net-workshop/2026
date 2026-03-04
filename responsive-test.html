@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEO-NET 2025 - Responsive Test</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Test page specific styles */
+        .test-section {
+            padding: 2rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .test-info {
+            background: rgba(147, 51, 234, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .screen-size-indicator {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+
+        .breakpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .breakpoint-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .responsive-demo {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(168, 85, 247, 0.05));
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Enhanced Navbar (same as main site) -->
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Enhanced logo -->
+                <div class="site-branding visible">
+                    <a class="logo" href="index.html">LEO-NET 2025</a>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-items">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#test1">Test Section 1</a></li>
+                    <li><a href="#test2">Test Section 2</a></li>
+                    <li><a href="#test3">Test Section 3</a></li>
+                    <li><a href="#responsive">Responsive Demo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Screen Size Indicator -->
+    <div class="screen-size-indicator" id="screen-indicator">
+        Screen: <span id="screen-width">--</span> x <span id="screen-height">--</span>
+        <br>
+        Breakpoint: <span id="current-breakpoint">--</span>
+    </div>
+
+    <!-- Test Content -->
+    <div style="padding-top: 100px;">
+        <section id="home" class="test-section">
+            <div class="container">
+                <h1>🚀 LEO-NET 2025 Responsive Test Page</h1>
+                <div class="test-info">
+                    <h4>Testing Enhanced Logo & Navbar Responsiveness</h4>
+                    <p>This page demonstrates the improved logo design and comprehensive navbar responsiveness across
+                        different screen sizes and devices.</p>
+                </div>
+
+                <div class="responsive-demo" id="responsive">
+                    <h3>📱 Responsive Breakpoints</h3>
+                    <p>The navbar automatically adapts to different screen sizes with optimized layouts:</p>
+
+                    <div class="breakpoint-grid">
+                        <div class="breakpoint-card">
+                            <h5>📺 Ultra-wide (1920px+)</h5>
+                            <p>Maximum spacing and large logo</p>
+                            <small>Container: 1600px, Logo: 1.6rem</small>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>🖥️ Desktop (1200px+)</h5>
+                            <p>Standard desktop layout</p>
+                            <small>Centered nav, Logo: 1.5rem</small>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>💻 Laptop (992px+)</h5>
+                            <p>Compact desktop view</p>
+                            <small>Reduced spacing, Logo: 1.3rem</small>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>📱 Tablet (768px+)</h5>
+                            <p>Touch-optimized interface</p>
+                            <small>Larger touch targets</small>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>📱 Mobile (576px+)</h5>
+                            <p>Mobile hamburger menu</p>
+                            <small>Full-width dropdown</small>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>📱 Small (375px+)</h5>
+                            <p>Optimized for small screens</p>
+                            <small>Compact logo and menu</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="test1" class="test-section">
+            <div class="container">
+                <h2>✨ Enhanced Logo Features</h2>
+                <div class="test-info">
+                    <h4>Logo Improvements:</h4>
+                    <ul>
+                        <li>🎨 <strong>Enhanced Typography:</strong> Space Grotesk & Orbitron fonts</li>
+                        <li>🌈 <strong>Gradient Effects:</strong> Purple-to-white gradient with hover animations</li>
+                        <li>🛰️ <strong>Satellite Icon:</strong> Animated floating satellite emoji</li>
+                        <li>🎯 <strong>Hover Effects:</strong> Scale, glow, and transform animations</li>
+                        <li>📱 <strong>Responsive Sizing:</strong> Adaptive font sizes across devices</li>
+                        <li>✨ <strong>Background Effects:</strong> Subtle backdrop blur and border glow</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: rgba(15, 23, 42, 0.1); border-radius: 12px;">
+                    <p><strong>Try hovering over the logo in the navbar above!</strong></p>
+                    <p>Notice the smooth animations, color transitions, and floating satellite icon.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="test2" class="test-section">
+            <div class="container">
+                <h2>📱 Mobile Menu Enhancements</h2>
+                <div class="test-info">
+                    <h4>Mobile Navigation Features:</h4>
+                    <ul>
+                        <li>🍔 <strong>Animated Hamburger:</strong> Smooth transform to X when active</li>
+                        <li>📋 <strong>Slide-down Menu:</strong> Elegant dropdown with backdrop blur</li>
+                        <li>🎯 <strong>Touch Optimization:</strong> Large touch targets for mobile</li>
+                        <li>🔒 <strong>Body Scroll Lock:</strong> Prevents background scrolling</li>
+                        <li>👆 <strong>Click Outside to Close:</strong> Intuitive interaction</li>
+                        <li>🔄 <strong>Auto-close on Resize:</strong> Adapts to orientation changes</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 2rem; background: rgba(168, 85, 247, 0.1); border-radius: 12px;">
+                    <p><strong>Resize your browser window or use mobile device!</strong></p>
+                    <p>Test the hamburger menu below 768px width.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="test3" class="test-section">
+            <div class="container">
+                <h2>🌐 Cross-Browser Compatibility</h2>
+                <div class="test-info">
+                    <h4>Tested & Optimized For:</h4>
+                    <div class="breakpoint-grid">
+                        <div class="breakpoint-card">
+                            <h5>🌐 Chrome/Edge</h5>
+                            <p>Full feature support</p>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>🦊 Firefox</h5>
+                            <p>Optimized animations</p>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>🍎 Safari</h5>
+                            <p>WebKit compatibility</p>
+                        </div>
+                        <div class="breakpoint-card">
+                            <h5>📱 Mobile Browsers</h5>
+                            <p>Touch-optimized</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 2rem; background: rgba(124, 58, 237, 0.1); border-radius: 12px;">
+                    <h4>🎯 Accessibility Features</h4>
+                    <ul style="text-align: left; display: inline-block;">
+                        <li>⌨️ Keyboard navigation support</li>
+                        <li>🎨 High contrast focus states</li>
+                        <li>📢 Screen reader compatibility</li>
+                        <li>🚫 Reduced motion preferences</li>
+                        <li>📏 Scalable text and elements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Content for Scrolling -->
+        <section class="test-section">
+            <div class="container">
+                <h2>📊 Performance Metrics</h2>
+                <div class="test-info">
+                    <h4>Optimization Features:</h4>
+                    <ul>
+                        <li>⚡ <strong>CSS Transforms:</strong> GPU-accelerated animations</li>
+                        <li>🎯 <strong>Efficient Selectors:</strong> Optimized CSS specificity</li>
+                        <li>📦 <strong>Minimal JavaScript:</strong> Lightweight interaction code</li>
+                        <li>🎨 <strong>CSS-only Animations:</strong> Smooth 60fps animations</li>
+                        <li>📱 <strong>Mobile-first:</strong> Progressive enhancement approach</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            const siteBranding = document.querySelector('.site-branding');
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            // Screen size indicator
+            const screenIndicator = document.getElementById('screen-indicator');
+            const screenWidth = document.getElementById('screen-width');
+            const screenHeight = document.getElementById('screen-height');
+            const currentBreakpoint = document.getElementById('current-breakpoint');
+
+            function updateScreenInfo() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+
+                screenWidth.textContent = width;
+                screenHeight.textContent = height;
+
+                let breakpoint = '';
+                if (width >= 1920) breakpoint = 'Ultra-wide';
+                else if (width >= 1440) breakpoint = 'Large Desktop';
+                else if (width >= 1200) breakpoint = 'Desktop';
+                else if (width >= 992) breakpoint = 'Laptop';
+                else if (width >= 768) breakpoint = 'Tablet';
+                else if (width >= 576) breakpoint = 'Large Mobile';
+                else if (width >= 375) breakpoint = 'Mobile';
+                else breakpoint = 'Small Mobile';
+
+                currentBreakpoint.textContent = breakpoint;
+            }
+
+            // Update screen info on load and resize
+            updateScreenInfo();
+            window.addEventListener('resize', updateScreenInfo);
+
+            // Navbar scroll behavior
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-solid');
+                } else {
+                    navbar.classList.remove('navbar-solid');
+                }
+            });
+
+            // Mobile hamburger menu functionality
+            if (navbarToggle && navbarCollapse) {
+                navbarToggle.addEventListener('click', function () {
+                    navbarToggle.classList.toggle('active');
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.classList.toggle('in');
+
+                    if (navbarCollapse.classList.contains('show')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking links
+                const navLinks = navbarCollapse.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function () {
+                        navbarToggle.classList.remove('active');
+                        navbarCollapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    const isClickInsideNav = navbar.contains(event.target);
+                    if (!isClickInsideNav && navbarCollapse.classList.contains('show')) {
+                        navbarToggle.classList.remove('active');
+                        navbarCollapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Enhanced responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth > 768) {
+                        if (navbarToggle) navbarToggle.classList.remove('active');
+                        if (navbarCollapse) navbarCollapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    }
+                }, 100);
+            });
+
+            // Smooth scrolling for anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navbarHeight = navbar.offsetHeight;
+                        const targetPosition = target.offsetTop - navbarHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

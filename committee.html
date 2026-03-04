@@ -1,0 +1,126 @@
+---
+# this is an empty front matter
+---
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ site.data.conference.short_title }} {{ site.data.conference.year }} | ACM SIGCOMM {{
+    site.data.conference.year }}</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#site-nav">
+  {% include header-small.html %}
+
+  <section class="section">
+    <div class="article-content">
+      <h3 class="section-title">Committee</h3>
+
+      <h4>Workshop Organisers</h4>
+      <div class="committee-list">
+        {% for chair in site.data.chairs.general_chairs %}
+        <div class="committee-member">
+          {% if chair.website %}
+          <a href="{{ chair.website }}" target="_blank" style="text-decoration: none; color: inherit;">
+            <h5>{{ chair.firstname }} {{ chair.lastname }}</h5>
+            <p>{{ chair.institution }}</p>
+          </a>
+          {% else %}
+          <h5>{{ chair.firstname }} {{ chair.lastname }}</h5>
+          <p>{{ chair.institution }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <h4>Technical Program Committee</h4>
+      <div class="committee-list">
+        {% for member in site.data.committee.tpc %}
+        <div class="committee-member">
+          {% if member.website %}
+          <a href="{{ member.website }}" target="_blank" style="text-decoration: none; color: inherit;">
+            <h5>{{ member.name }}</h5>
+            <p>{{ member.institution }}</p>
+          </a>
+          {% else %}
+          <h5>{{ member.name }}</h5>
+          <p>{{ member.institution }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <!-- import navigation bar and header -->
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbar = document.querySelector('.navbar-custom');
+      const siteBranding = document.querySelector('.site-branding');
+
+      // Always show logo on non-home pages
+      if (siteBranding) {
+        siteBranding.classList.add('visible');
+      }
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          navbar.classList.add('navbar-solid');
+        } else {
+          navbar.classList.remove('navbar-solid');
+        }
+      });
+
+      // Generate dynamic stars background for compact pages
+      function generateStarsCompact() {
+        const starsLayer = document.getElementById('stars-layer-compact');
+        if (!starsLayer) return;
+
+        const starCount = 30; // Fewer stars for compact header
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+
+          // Random star size
+          const starTypes = ['star-small', 'star-medium', 'star-large'];
+          const randomType = starTypes[Math.floor(Math.random() * starTypes.length)];
+          star.classList.add(randomType);
+
+          // Random position
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+
+          // Random animation delay
+          star.style.animationDelay = Math.random() * 5 + 's';
+
+          starsLayer.appendChild(star);
+        }
+      }
+
+      // Initialize space effects for compact pages
+      generateStarsCompact();
+
+      // Add space-themed console messages
+      console.log('🛰️ LEO-NET 2025: Satellite constellation active');
+      console.log('📡 Ground station: Signal acquired');
+    });
+  </script>
+</body>
+
+</html>

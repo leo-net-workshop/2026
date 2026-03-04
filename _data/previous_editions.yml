@@ -1,0 +1,20 @@
+intro: "LEO-NET has been bringing together researchers and practitioners to explore the challenges and opportunities in LEO satellite networking since 2023."
+
+editions:
+  # - year: 2025
+  #   ordinal: "third"
+  #   location: "Coimbra, Portugal"
+  #   url: "https://leo-net-workshop.github.io/2025/"
+  #   description: "The third workshop was held in conjunction with ACM SIGCOMM 2025."
+
+  - year: 2024
+    ordinal: "second"
+    location: "Washington D.C., USA"
+    url: "https://leo-net-workshop.github.io/2024/"
+    description: "The second workshop was held in conjunction with ACM MOBICOM 2024, continuing to advance the field of LEO satellite networking and communication research. Due to significant interest, the workshop was expanded into a full-day event."
+
+  - year: 2023
+    ordinal: "first"
+    location: "Madrid, Spain"
+    url: "https://leo-net-workshop.github.io/2023/"
+    description: "The inaugural workshop established LEO-NET as a premier venue for discussing the latest developments in low earth orbit satellite networks and their applications. It was held with ACM MOBICOM 2023."

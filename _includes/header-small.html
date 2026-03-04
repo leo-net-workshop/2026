@@ -1,0 +1,185 @@
+<!— existing head content above —>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    <nav x-data="{ open: false }" id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="site-branding">
+                    <a class="logo" href="index.html">{{ site.data.conference.short_title }} {{
+                        site.data.conference.year }}</a>
+                </div>
+
+                <button type="button" @click="open = !open" class="navbar-toggle" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!-- /.navbar-header -->
+
+            <div x-show="open" x-cloak x-transition class="collapse navbar-collapse" id="navbar-items">
+                <ul class="nav navbar-nav">
+                    <!-- navigation menu -->
+                    <li><a href="cfp.html">Call for Papers</a></li>
+                    <li><a href="program.html">Program</a></li>
+                    <li><a href="committee.html">Committees</a></li>
+                    <li><a href="previous_editions.html">Previous Editions</a></li>
+                </ul>
+            </div>
+
+        </div><!-- /.container -->
+    </nav>
+
+    <!-- Compact Header - For Other Pages -->
+    <header class="compact-header">
+        <!-- Animated Satellite Constellation for Other Pages -->
+        <div class="satellite-constellation">
+            <div class="satellite satellite-1"></div>
+            <div class="satellite satellite-2"></div>
+            <div class="satellite satellite-3"></div>
+        </div>
+
+        <!-- Enhanced Stars Background for Other Pages -->
+        <div class="stars-layer" id="stars-layer-compact"></div>
+
+        <div class="container">
+            <div class="compact-intro">
+                <h1>{{ site.data.conference.short_title }} {{ site.data.conference.year }}</h1>
+                <p>{{ site.data.conference.title }} {{ site.data.conference.year }}</p>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            const siteBranding = document.querySelector('.site-branding');
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            // Always show logo on non-home pages
+            if (siteBranding) {
+                siteBranding.classList.add('visible');
+            }
+
+            // Enhanced navbar scroll behavior
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-solid');
+                } else {
+                    navbar.classList.remove('navbar-solid');
+                }
+            });
+
+            // Mobile hamburger menu functionality
+            if (navbarToggle && navbarCollapse) {
+                navbarToggle.addEventListener('click', function () {
+                    // Toggle active state on hamburger
+                    navbarToggle.classList.toggle('active');
+
+                    // Toggle navbar collapse
+                    navbarCollapse.classList.toggle('show');
+                    navbarCollapse.classList.toggle('in'); // For Bootstrap compatibility
+
+                    // Prevent body scroll when menu is open
+                    if (navbarCollapse.classList.contains('show')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close mobile menu when clicking on a nav link
+                const navLinks = navbarCollapse.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function () {
+                        navbarToggle.classList.remove('active');
+                        navbarCollapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    const isClickInsideNav = navbar.contains(event.target);
+                    if (!isClickInsideNav && navbarCollapse.classList.contains('show')) {
+                        navbarToggle.classList.remove('active');
+                        navbarCollapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Enhanced responsive behavior for window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    // Close mobile menu on desktop resize
+                    if (window.innerWidth > 768) {
+                        if (navbarToggle) navbarToggle.classList.remove('active');
+                        if (navbarCollapse) {
+                            navbarCollapse.classList.remove('show', 'in');
+                        }
+                        document.body.style.overflow = '';
+                    }
+                }, 100);
+            });
+
+            // Generate dynamic stars background for compact pages
+            function generateStarsCompact() {
+                const starsLayer = document.getElementById('stars-layer-compact');
+                if (!starsLayer) return;
+
+                const starCount = 30; // Fewer stars for compact header
+
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+
+                    // Random star size
+                    const starTypes = ['star-small', 'star-medium', 'star-large'];
+                    const randomType = starTypes[Math.floor(Math.random() * starTypes.length)];
+                    star.classList.add(randomType);
+
+                    // Random position
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+
+                    // Random animation delay
+                    star.style.animationDelay = Math.random() * 3 + 's';
+
+                    starsLayer.appendChild(star);
+                }
+            }
+
+            // Initialize stars for compact headers
+            generateStarsCompact();
+
+            // Add smooth scroll behavior for anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navbarHeight = navbar.offsetHeight;
+                        const targetPosition = target.offsetTop - navbarHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>

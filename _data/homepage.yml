@@ -1,0 +1,16 @@
+paragraphs:
+  - "Over the past decade, significant reductions in satellite production and launch costs have opened up a new 'space' – access to Low-Earth Orbits or LEO. Massive constellations from industry consisting of hundreds to tens of thousands of low-flying satellites are being rolled out."
+
+  - "The wide-scale LEO satellite deployment and interest present a unique challenge and opportunity to bring reliable Internet connectivity to the remotest regions of the Earth. As such, the research community needs the right tools to explore various unforeseen opportunities (like global coverage, low-latency connectivity, and high-resolution imagery) and challenges (like extreme mobility, bottlenecked downlinks, and sparse ground infrastructure) that come with LEO deployments."
+
+  - "Overall, LEO-NET aims to open new avenues for networking researchers to explore different aspects of LEO constellation operation and performance and shape the state of LEO satellite communication. We see multiple strong verticals in LEO – understanding the operation and potential bottlenecks in rapidly growing LEO constellation offerings, novel network protocol extensions that leverage the highly dynamic LEO links, applications like satellite imagery and IoT, LEO compute, and several others. We expect strong submissions along all of these verticals addressing many open challenges across the stack."
+
+additional_info: "In addition to the regular papers, the program of LEO-NET 2025 will also include keynote and panel discussion including experts in LEO networking research."
+
+# Countdown timer configuration
+countdown_date: "2025-09-08T08:50:00+01:00" # Workshop starts at 08:50 on September 8th, 2025 in Coimbra, Portugal (WEST timezone)
+
+meta:
+  description: "The 3rd ACM Workshop on on LEO Networking and Communication, co-located with SIGCOMM 2025 (Coimbra, Portugal)."
+  keywords: "LEO-NET, LEO-NET2025, LEO-NET 2025, LEO, SIGCOMM, SIGCOMM 2025, low earth orbit, satellite, LEO satellite, satellite broadband, workshop, talks, research"
+  authors: "Nitinder Mohan, Deepak Vasisht, Debopam Bhattacherjee"

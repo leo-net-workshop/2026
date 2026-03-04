@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ...existing head content... -->
+</head>
+
+<body>
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- logo -->
+                <div class="site-branding">
+                    <a class="logo" href="index.html">{{ site.data.conference.short_title }} {{
+                        site.data.conference.year
+                        }}</a>
+                </div>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul class="nav navbar-nav">
+                    <!-- navigation menu -->
+                    <li><a href="cfp.html">Call for Papers</a></li>
+                    <li><a href="program.html">Program</a></li>
+                    <li><a href="committee.html">Committees</a></li>
+                    <li><a href="previous_editions.html">Previous Editions</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container -->
+    </nav>
+
+    <!-- Full Hero Header - Only for Home Page -->
+    <header id="site-header" class="site-header valign-center">
+        <!-- Animated Satellite Constellation -->
+        <div class="satellite-constellation">
+            <div class="satellite satellite-1"></div>
+            <div class="satellite satellite-2"></div>
+            <div class="satellite satellite-3"></div>
+            <div class="satellite satellite-4"></div>
+            <div class="satellite satellite-5"></div>
+        </div>
+
+        <!-- Enhanced Stars Background -->
+        <div class="stars-layer" id="stars-layer"></div>
+
+        <div class="intro">
+            <h1>{{ site.data.conference.short_title }} {{ site.data.conference.year }}</h1>
+            <h2>{{ site.data.conference.title }}</h2>
+            <div class="hero-location-date">
+                <span class="location">{{ site.data.conference.location }}</span>
+                <span class="date">{{ site.data.conference.dates }}</span>
+            </div>
+
+            <!-- Orbital Countdown Timer -->
+            <div class="orbital-countdown" id="orbital-countdown">
+                <div class="countdown-content">
+                    <div class="countdown-title">🚀 Mission Countdown</div>
+                    <div class="countdown-display" id="countdown-display">
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="days">--</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="hours">--</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="minutes">--</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="seconds">--</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://conferences.sigcomm.org/sigcomm/{{ site.data.conference.year }}/" target="_blank"
+                class="hero-subtitle">Co-located with ACM SIGCOMM {{ site.data.conference.year }}</a>
+        </div>
+    </header>
+
+    <!-- Load required JS for navbar collapse -->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.querySelector('.navbar-toggle');
+            const collapse = document.getElementById('navbar-items');
+            if (toggle && collapse) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    toggle.classList.toggle('collapsed');
+                    collapse.classList.toggle('in');
+                    collapse.classList.toggle('show');
+                    document.body.style.overflow = collapse.classList.contains('show') ? 'hidden' : '';
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    const nav = document.getElementById('site-nav');
+                    if (!nav.contains(event.target) && collapse.classList.contains('show')) {
+                        toggle.classList.add('collapsed');
+                        collapse.classList.remove('show', 'in');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+---
+# this is an empty front matter
+---
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ site.data.conference.short_title }} {{ site.data.conference.year }} | ACM SIGCOMM {{
+        site.data.conference.year }}</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#site-nav">
+    <!-- Using small header instead of full header -->
+    {% include header-small.html %}
+
+    <section id="program" class="section facts">
+        <div class="article-content">
+            <h3 class="section-title">{{ site.data.program.title }}</h3>
+        </div>
+
+        <div class="program-container">
+            {% for session in site.data.program.sessions %}
+            <div class="program-item {% if session.type == 'break' %}program-break{% endif %}">
+                <div class="program-time">
+                    <span>{{ session.time }}</span>
+                </div>
+                <div class="program-content">
+                    {% if session.type == "keynote" %}
+                    {% if session.speaker.name and session.speaker.name != "" %}
+                    <div class="keynote-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                        <div class="keynote-header">
+                            <div class="keynote-speaker-info">
+                                <div class="speaker-photo">
+                                    {% if session.speaker.profile_url and session.speaker.profile_url != "" %}
+                                    <a href="{{ session.speaker.profile_url }}" target="_blank">
+                                        <img src="{{ session.speaker.image }}" alt="{{ session.speaker.name }}">
+                                    </a>
+                                    {% else %}
+                                    <img src="{{ session.speaker.image }}" alt="{{ session.speaker.name }}">
+                                    {% endif %}
+                                </div>
+                                <div class="speaker-details">
+                                    <h4>{{ session.speaker.name }}</h4>
+                                    <p class="speaker-title">{{ session.speaker.title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% if session.talk.abstract and session.talk.abstract != "" %}
+                        <div class="keynote-abstract">
+                            <p>{{ session.talk.abstract }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="keynote-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                    </div>
+                    {% endif %}
+
+                    {% elsif session.type == "opening" %}
+                    <div class="opening-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                        {% if session.chair and session.chair != "" %}
+                        <p class="session-chair">Chair: {{ session.chair }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% elsif session.type == "break" %}
+                    <div class="break-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                    </div>
+
+                    {% elsif session.type == "technical_session" %}
+                    <div class="technical-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                        {% if session.chair and session.chair != "" %}
+                        <p class="session-chair">Chair: {{ session.chair }}</p>
+                        {% endif %}
+                        <div class="papers-list">
+                            {% for paper in session.papers %}
+                            {% if paper.url and paper.url != "" %}
+                            <a href="{{ paper.url }}"
+                                class="paper-item{% if paper.best_paper_award %} best-paper-award{% endif %}"
+                                target="_blank">
+                                {% if paper.best_paper_award %}
+                                <div class="best-paper-badge" data-award="{{ paper.best_paper_award }}">
+                                    Best Paper
+                                </div>
+                                {% endif %}
+                                <h4 class="paper-title">{{ paper.title }}</h4>
+                                <p class="paper-authors">{{ paper.authors }}</p>
+                            </a>
+                            {% else %}
+                            <a href="#" class="paper-item{% if paper.best_paper_award %} best-paper-award{% endif %}"
+                                onclick="return false;">
+                                {% if paper.best_paper_award %}
+                                <div class="best-paper-badge" data-award="{{ paper.best_paper_award }}">
+                                    Best Paper
+                                </div>
+                                {% endif %}
+                                <h4 class="paper-title">{{ paper.title }}</h4>
+                                <p class="paper-authors">{{ paper.authors }}</p>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% elsif session.type == "panel" %}
+                    <div class="panel-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                        {% if session.topic and session.topic != "" %}
+                        <div class="panel-topic">
+                            <p>{{ session.topic }}</p>
+                        </div>
+                        {% endif %}
+                        {% if session.panelists and session.panelists.size > 0 %}
+                        <div class="panel-speakers">
+                            {% for panelist in session.panelists %}
+                            {% if panelist.name and panelist.name != "" %}
+                            <div class="panel-speaker">
+                                <div class="panel-speaker-photo">
+                                    {% if panelist.profile_url and panelist.profile_url != "" and panelist.profile_url
+                                    != "#" %}
+                                    <a href="{{ panelist.profile_url }}" target="_blank">
+                                        <img src="{{ panelist.image }}" alt="{{ panelist.name }}">
+                                    </a>
+                                    {% else %}
+                                    <img src="{{ panelist.image }}" alt="{{ panelist.name }}">
+                                    {% endif %}
+                                </div>
+                                <div class="panel-speaker-info">
+                                    <h4>{{ panelist.name }}</h4>
+                                    <p class="panel-speaker-affiliation">{{ panelist.title }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if session.chair and session.chair != "" %}
+                        <p class="session-chair">Moderator: {{ session.chair }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% elsif session.type == "closing" %}
+                    <div class="closing-session">
+                        <h3 class="session-title">{{ session.title }}</h3>
+                        {% if session.chair and session.chair != "" %}
+                        <p class="session-chair">{{ session.chair }}</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+    <!-- import navigation bar and header -->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            const siteBranding = document.querySelector('.site-branding');
+
+            // Always show logo on non-home pages
+            if (siteBranding) {
+                siteBranding.classList.add('visible');
+            }
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-solid');
+                } else {
+                    navbar.classList.remove('navbar-solid');
+                }
+            });
+
+            // Generate dynamic stars background for compact pages
+            function generateStarsCompact() {
+                const starsLayer = document.getElementById('stars-layer-compact');
+                if (!starsLayer) return;
+
+                const starCount = 30; // Fewer stars for compact header
+
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+
+                    // Random star size
+                    const starTypes = ['star-small', 'star-medium', 'star-large'];
+                    const randomType = starTypes[Math.floor(Math.random() * starTypes.length)];
+                    star.classList.add(randomType);
+
+                    // Random position
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+
+                    // Random animation delay
+                    star.style.animationDelay = Math.random() * 5 + 's';
+
+                    starsLayer.appendChild(star);
+                }
+            }
+
+            // Initialize space effects for compact pages
+            generateStarsCompact();
+
+            // Add space-themed console messages
+            console.log('🛰️ LEO-NET 2025: Satellite constellation active');
+            console.log('📡 Ground station: Signal acquired');
+        });
+    </script>
+</body>
+
+</html>

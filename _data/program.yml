@@ -1,0 +1,154 @@
+# LEO-NET 2025 Workshop Program
+# This file contains the complete program structure
+
+title: "Program"
+subtitle: "The 3rd ACM Workshop on LEO Networking and Communication 2025"
+
+sessions:
+  - time: "08:45 - 09:00"
+    title: "Workshop Starts + Welcome Address"
+    type: "opening"
+
+  - time: "09:00 - 09:50"
+    title: "Keynote: Cloud above the clouds"
+    type: "keynote"
+    speaker:
+      name: "Dr. Paulo Mendes"
+      title: "Airbus Research"
+      image: "img/speakers/Paulo-Mendes.jpeg"
+      profile_url: "https://www.paulomilheiromendes.com/about-me"
+    talk:
+      title: "Cloud about the clouds"
+      abstract: "Currently, a mere 20% of data processing and analysis occurs locally, with a dominant 80% centralized in data centers. However, this paradigm is shifting. Predictions indicate that within five years, edge computing will handle the majority of data processing and analytics. This trend is driven by the escalating demand for real-time data access and the need to manage the burgeoning data volumes generated at the network's edge, exemplified by Earth Observation Services. Integrating edge computing into space platforms brings processing closer to data generation, significantly reducing communication bottlenecks and accelerating data analysis. This approach alleviates the data load transmitted to Earth, enabling faster decision-making and response times. Extending this concept, space edge computing can evolve into a robust space cloud infrastructure, facilitated by high-speed interconnectivity and distributed computing frameworks. This platform would offer in-space computing resources and services, fostering flexible data sharing and task distribution. Beyond basic edge computing, it could support complex data analysis and storage, providing large-scale computing services that complement terrestrial cloud infrastructure. This presentation will delve into the concepts of space edge and cloud computing, exploring the inherent challenges and the transformative opportunities they present."
+
+  - time: "09:50 - 10:30"
+    title: "Technical Session 1: LEO Internet for All"
+    type: "technical_session"
+    # chair: "TBD"
+    papers:
+    - title: "Optimising LEO Gateway Placement for the People"
+      authors: "Prince Bhardwaj Pawankumar Sharma, Abdullahi K. Abubakar, Nishanth Sastry (University of Surrey)"
+      url: "https://doi.org/10.1145/3748749.3749095"
+
+    - title: "Simulation and Comparison of Vehicle Satellite Connectivity under a 3D Foliage Environment: Starlink and OneWeb"
+      authors: "Kevin T. Li, Christian A. Hofmann, Andreas Knopp (University of the Bundeswehr Munich)"
+      url: "https://doi.org/10.1145/3748749.3749086"
+    
+
+  - time: "10:30 - 11:00"
+    title: "☕ Coffee Break"
+    type: "break"
+
+  - time: "11:00 - 11:40"
+    title: "Technical Session 2: Improving Internet-from-Space"
+    type: "technical_session"
+    # chair: "TBD"
+    papers:
+      - title: "The Internet from Space, Reimagined – Leveraging Altitude for Efficient Global Coverage"
+        authors: "Chris Misa, Ramakrishnan Durairajan (University of Oregon and Link Oregon)"
+        url: "https://doi.org/10.1145/3748749.3749092"
+
+      - title: "A Distributed Data Store in Orbit"
+        authors: "Joerg Ott (Technische Universität München); Jussi Kangasharju (University of Helsinki); Nitinder Mohan (TU Delft)"
+        url: "https://doi.org/10.1145/3748749.3749093"
+
+  - time: "11:40 - 12:40"
+    title: "Technical Session 3: Performance Characterization & Measurements"
+    type: "technical_session"
+    # chair: "TBD"
+    papers:
+      - title: "FjordLink: Comparison of Starlink and 5G Networks for Teleoperated Vessel Control"
+        authors: "Birkan Denizer (Kiel University); Nils Dohse (ADDIX GmbH); Olaf Landsiedel (Hamburg University of Technology & Kiel University)"
+        urlk: "https://doi.org/10.1145/3748749.3749085"
+
+      - title: "Better Fill Up Your Pipe: Revisiting Starlink's Burst Characterization"
+        authors: "Till Zimmermann, Eric Lanfer, Dominic Laniewski, Simon Brinkmann, Nils Aschenbruck (Osnabrück University)"
+        url: "https://doi.org/10.1145/3748749.3749089"
+
+
+      - title: "A Detailed Characterization of Starlink One-way Delay"
+        authors: "Johan Garcia, Simon Sundberg (Karlstad University); Anna Brunstrom (Karlstad University and University of Malaga)"
+        url: "https://doi.org/10.1145/3748749.3749090"
+
+
+  - time: "12:40 - 14:00"
+    title: "🍲 Lunch"
+    type: "break"
+
+  - time: "14:00 - 14:40"
+    title: "Technical Session 4: Experimentation & Monitoring Platforms"
+    type: "technical_session"
+    # chair: "TBD"
+    papers:
+      - title: "How LLM Saved Me from Struggling with Experiment Reproduction: LEO Networking as A Case Study"
+        authors: "Yibo Wang, Yunan Hou, Zeqi Lai, Hewu Li, Qian Wu, Jun Liu, Yuanjie Li, Xin Xie (Tsinghua University); Zhifeng Han (Xidian University)"
+        url: "https://doi.org/10.1145/3748749.3749084"
+
+      - title: "MOSAIC: Piecing Together 5G and LEOs for NTN Integration Experimentation"
+        authors: "Revika Anand, Edward Austin, Charalampos Rotsos, Paul Smith, Nicholas Race (Lancaster University)"
+        url: "https://doi.org/10.1145/3748749.3749091"
+
+  - time: "14:40 - 15:45"
+    title: "Panel Discussion: Sustainability in the `Internet-over-Space' Race"
+    type: "panel"
+    panelists:
+      - name: "Prof. Dr. Ramesh K. Sitaraman"
+        title: "University of Massachusetts Amherst & <br> Akamai Technologies"
+        image: "img/speakers/ramesh_sitaraman.jpg"
+        profile_url: "https://groups.cs.umass.edu/ramesh/"
+      - name: "Dr. Zeqi Lai"
+        title: "Tsinghua University"
+        image: "img/speakers/zeqi-lai.jpg"
+        profile_url: "https://lzq8272587.github.io/"
+      - name: "Prof. Dr. Jörg Ott"
+        title: "Technical University of Munich"
+        image: "img/speakers/jorg-ott.webp"
+        profile_url: "https://www.ce.cit.tum.de/cm/research-group/joerg-ott/"
+      - name: "Dr. Paulo Mendes"
+        title: "Airbus Research"
+        image: "img/speakers/Paulo-Mendes.jpeg"
+        profile_url: "https://www.paulomilheiromendes.com/about-me"
+      - name: "Prof. Dr. Nishanth Sastry"
+        title: "University of Surrey"
+        image: "img/speakers/nishanth-sastry.jpg"
+        profile_url: "https://www.surrey.ac.uk/people/nishanth-sastry"
+
+  - time: "15:45 - 16:10"
+    title: "☕ Coffee Break"
+    type: "break"
+
+  - time: "16:10 - 17:10"
+    title: "Technical Session 5: Resilience of LEO Internet"
+    type: "technical_session"
+    # chair: "TBD"
+    papers:
+      - title: "Towards Global Outage Detection for LEO Networks"
+        authors: "Manda Tran, Khiet Huynh, Dravya Jain, Dylan Truong, Sirapop Theeranantachai (University of California, Los Angeles); Beichuan Zhang (University of Arizona); Lixia Zhang, Liz Izhikevich (University of California, Los Angeles)"
+        url: "https://doi.org/10.1145/3748749.3749088"
+
+      - title: "An Investigation of Starlink's Performance during the May 2024 Solar Super-storm"
+        authors: "Suvam Basak (PhD Candidate, Indian Institute of Technology Kanpur); Amitangshu Pal (Indian Institute of Technology Kanpur); Debopam Bhattacherjee (Microsoft Research India)"
+        url: "https://doi.org/10.1145/3748749.3749087"
+
+      - title: "A Deep Dive into the Impact of Solar Storms on LEO Satellite Networks"
+        authors: "Eunju Kang, Alagappan Ramanathan, Sangeetha Abdu Jyothi (University of California, Irvine)"
+        url: "https://doi.org/10.1145/3748749.3749094"
+        best_paper_award: "Dave Taht Outstanding Paper Award"
+        
+
+  - time: "17:10 - 17:55"
+    title: "Keynote: Towards A Scalable and Resilient Satellite Internet"
+    type: "keynote"
+    speaker:
+      name: "Dr. Zeqi Lai"
+      title: "Tsinghua University"
+      image: "img/speakers/zeqi-lai.jpg"
+      profile_url: "https://lzq8272587.github.io/"
+    talk:
+      title: "Towards A Scalable and Resilient Satellite Internet"
+      abstract: " Low-Earth orbit (LEO) broadband satellite constellations are rapidly extending the boundaries of the Internet. However, unlike traditional terrestrial infrastructures, satellite Internet operates under the highly dynamic and unstable conditions of outer space. On the one hand, the continuous high-speed movement of LEO satellites relative to the Earth's surface results in a constantly changing network topology. On the other hand, frequent node and link failures in the harsh space environment further challenge the availability, stability, and reliability of such networks.<br>
+      In this talk, I will first discuss how the unique characteristics of LEO satellite networks reshape the Internet architecture and protocol stack when extended into space. I will then present our recent efforts in developing resilient and scalable satellite Internet protocols, covering topics such as topology design, routing, transport, applications, and experimental methodologies. Moreover, I will also share our efforts in satellite network standardization and education. Finally, I will outline several future directions that we believe are critical for building an open, stable, and secure global satellite Internet."
+
+  - time: "17:55 - 18:00"
+    title: "Workshop Ends + Award"
+    type: "opening"

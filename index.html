@@ -1,0 +1,209 @@
+---
+# this is an empty front matter
+---
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="{{ site.data.homepage.meta.description }}">
+  <meta name="keywords" content="{{ site.data.homepage.meta.keywords }}">
+  <meta name="author" content="{{ site.data.homepage.meta.authors }}">
+
+  <title>{{ site.data.conference.short_title }} {{ site.data.conference.year }} | ACM SIGCOMM {{
+    site.data.conference.year }}</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#site-nav">
+  {% include header.html %}
+
+  <section class="section">
+    <div class="article-content">
+      <h3>{{ site.data.conference.title }}</h3>
+
+      <div class="feature-grid">
+        {% for feature in site.data.features %}
+        <div class="feature-item">
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% for paragraph in site.data.homepage.paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+
+      <p>{{ site.data.homepage.additional_info }}</p>
+
+      {% if site.data.keynotes.size > 0 %}
+      <h4>Keynote Speakers</h4>
+      {% for keynote in site.data.keynotes %}
+      <p><strong>{{ keynote.academic_title }} {{ keynote.firstname }} {{ keynote.lastname }}</strong>, {{
+        keynote.affiliation }}</p>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="dates-section">
+      <div class="dates-content">
+        {% if site.data.dates.submission %}
+        <div class="date-item">
+          <h4>Paper Submission</h4>
+          <p>{{ site.data.dates.submission }}</p>
+        </div>
+        {% endif %}
+        {% if site.data.dates.notification %}
+        <div class="date-item">
+          <h4>Acceptance Notification</h4>
+          <p>{{ site.data.dates.notification }}</p>
+        </div>
+        {% endif %}
+        {% if site.data.dates.camera_ready %}
+        <div class="date-item">
+          <h4>Camera Ready</h4>
+          <p>{{ site.data.dates.camera_ready }}</p>
+        </div>
+        {% endif %}
+        {% if site.data.dates.workshop %}
+        <div class="date-item">
+          <h4>Workshop</h4>
+          <p>{{ site.data.dates.workshop }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <!-- import navigation bar and header -->
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbar = document.querySelector('.navbar-custom');
+      const siteBranding = document.querySelector('.site-branding');
+      const siteHeader = document.querySelector('#site-header');
+
+      window.addEventListener('scroll', function () {
+        const scrollY = window.scrollY;
+        const headerHeight = siteHeader ? siteHeader.offsetHeight : 100;
+
+        // Show/hide navbar logo based on scroll position
+        if (scrollY > headerHeight * 0.8) {
+          navbar.classList.add('navbar-solid');
+          if (siteBranding) {
+            siteBranding.classList.add('visible');
+          }
+        } else {
+          navbar.classList.remove('navbar-solid');
+          if (siteBranding) {
+            siteBranding.classList.remove('visible');
+          }
+        }
+      });
+
+      // Generate dynamic stars background
+      function generateStars() {
+        const starsLayer = document.getElementById('stars-layer');
+        if (!starsLayer) return;
+
+        const starCount = 50;
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+
+          // Random star size
+          const starTypes = ['star-small', 'star-medium', 'star-large'];
+          const randomType = starTypes[Math.floor(Math.random() * starTypes.length)];
+          star.classList.add(randomType);
+
+          // Random position
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+
+          // Random animation delay
+          star.style.animationDelay = Math.random() * 5 + 's';
+
+          starsLayer.appendChild(star);
+        }
+      }
+
+      // Orbital Countdown Timer to date from homepage.yml
+      function updateCountdown() {
+        const countdownElement = document.getElementById('orbital-countdown');
+        if (!countdownElement) return;
+
+        // Workshop date from homepage.yml data
+        const targetDate = new Date('{{ site.data.homepage.countdown_date }}');
+        const now = new Date();
+        const timeDifference = targetDate - now;
+
+        // Check if it's the same day as the workshop
+        const isSameDay = now.toDateString() === targetDate.toDateString();
+
+        if (timeDifference > 0 && !isSameDay) {
+          // Before the workshop day - show countdown with "Time to Launch"
+          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          document.getElementById('days').textContent = days.toString().padStart(3, '0');
+          document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+          document.querySelector('.countdown-title').textContent = '🚀 Time to Launch';
+        } else if (isSameDay && timeDifference > 0) {
+          // Same day but workshop hasn't started yet - show "Launch is live"
+          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          document.getElementById('days').textContent = '000';
+          document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+          document.querySelector('.countdown-title').textContent = '🚀 Launch is Live!';
+        } else {
+          // Workshop has started or passed - show "Look out for next launch"
+          document.getElementById('days').textContent = '000';
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+
+          document.querySelector('.countdown-title').textContent = '🚀 Look out for next launch';
+        }
+      }
+
+      // Initialize space effects
+      generateStars();
+      updateCountdown();
+
+      // Update countdown every second
+      setInterval(updateCountdown, 1000);
+
+      // Add some space-themed console messages for fun
+      console.log('🛰️ LEO-NET 2025: Satellite constellation initialized');
+      console.log('🌍 Earth observation systems: Online');
+      console.log('📡 Ground station connection: Established');
+      console.log('🚀 Mission Countdown: Time to Launch');
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+---
+# this is an empty front matter
+---
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ site.data.conference.short_title }} {{ site.data.conference.year }} | ACM SIGCOMM {{
+        site.data.conference.year }}</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#site-nav">
+    {% include header-small.html %}
+
+    <section class="section">
+        <div class="article-content">
+            <h3 class="section-title">Call for Papers</h3>
+
+            {% for paragraph in site.data.cfp.intro %}
+            <p>{{ paragraph }}</p>
+            {% endfor %}
+
+            <h4>Topics of Interest</h4>
+            <p>The scope of this workshop includes (but is not limited to) the following topics:</p>
+
+            <div class="topics-grid">
+                <ul>
+                    {% for topic in site.data.cfp.topics limit:8 %}
+                    <li>{{ topic }}</li>
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for topic in site.data.cfp.topics offset:8 %}
+                    <li>{{ topic }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <h4>Submission Guidelines</h4>
+
+            {% for guideline in site.data.cfp.submission_guidelines %}
+            <p>{{ guideline }}</p>
+            {% endfor %}
+
+            <div class="submit-button-container">
+                <a href="{{ site.data.conference.submission_site }}" target="_blank" class="btn-submit-paper">
+                    <span class="btn-gradient"></span>
+                    <span class="btn-content">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 18V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9 15L12 18L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Submit Your Paper
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+            <style>
+                .submit-button-container {
+                    margin: 2rem 0;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .btn-submit-paper {
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.85rem 1.8rem;
+                    border-radius: 12px;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                    text-decoration: none;
+                    color: white !important;
+                    background-color: rgba(15, 23, 42, 0.8);
+                    overflow: hidden;
+                    z-index: 1;
+                    letter-spacing: 0.02em;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2);
+                    border: 1px solid rgba(147, 51, 234, 0.3);
+                }
+
+                .btn-gradient {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(115deg,
+                            rgba(147, 51, 234, 0.8),
+                            rgba(168, 85, 247, 0.9),
+                            rgba(139, 92, 246, 0.9),
+                            rgba(124, 58, 237, 0.8));
+                    opacity: 0.9;
+                    z-index: -1;
+                    transition: opacity 0.3s ease;
+                }
+
+                .btn-content {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    z-index: 2;
+                }
+
+                .arrow-icon {
+                    opacity: 0;
+                    transform: translateX(-10px);
+                    transition: all 0.3s ease;
+                }
+
+                .btn-submit-paper:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 15px 30px rgba(147, 51, 234, 0.4);
+                    padding-right: 2.2rem;
+                }
+
+                .btn-submit-paper:hover .arrow-icon {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                .btn-submit-paper:hover .btn-gradient {
+                    animation: gradientShift 3s infinite alternate;
+                }
+
+                .btn-submit-paper:active {
+                    transform: translateY(0);
+                    box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+                }
+
+                @keyframes gradientShift {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+
+                .btn-submit-paper::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50px;
+                    height: 100%;
+                    background: rgba(255, 255, 255, 0.1);
+                    transform: skewX(-20deg) translateX(-150px);
+                    transition: none;
+                }
+
+                .btn-submit-paper:hover::before {
+                    animation: sheen 1.5s forwards;
+                }
+
+                @keyframes sheen {
+                    100% {
+                        transform: skewX(-20deg) translateX(450px);
+                    }
+                }
+
+                /* Improve accessibility for different vision conditions */
+                @media (prefers-contrast: more) {
+                    .btn-submit-paper {
+                        border: 3px solid white;
+                        font-weight: 700;
+                    }
+                }
+
+                /* Mobile responsiveness */
+                @media (max-width: 768px) {
+                    .submit-button-container {
+                        justify-content: center;
+                    }
+                }
+            </style>
+
+            <h4>Questions?</h4>
+            <p>{{ site.data.cfp.contact }}</p>
+        </div>
+
+        <div class="dates-section">
+            <div class="dates-content">
+                {% if site.data.dates.submission %}
+                <div class="date-item">
+                    <h4>Paper Submission</h4>
+                    <p>{{ site.data.dates.submission }}</p>
+                </div>
+                {% endif %}
+                {% if site.data.dates.notification %}
+                <div class="date-item">
+                    <h4>Acceptance Notification</h4>
+                    <p>{{ site.data.dates.notification }}</p>
+                </div>
+                {% endif %}
+                {% if site.data.dates.camera_ready %}
+                <div class="date-item">
+                    <h4>Camera Ready</h4>
+                    <p>{{ site.data.dates.camera_ready }}</p>
+                </div>
+                {% endif %}
+                {% if site.data.dates.workshop %}
+                <div class="date-item">
+                    <h4>Workshop</h4>
+                    <p>{{ site.data.dates.workshop }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+    <!-- import navigation bar and header -->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            const siteBranding = document.querySelector('.site-branding');
+
+            // Always show logo on non-home pages
+            if (siteBranding) {
+                siteBranding.classList.add('visible');
+            }
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('navbar-solid');
+                } else {
+                    navbar.classList.remove('navbar-solid');
+                }
+            });
+
+            // Generate dynamic stars background for compact pages
+            function generateStarsCompact() {
+                const starsLayer = document.getElementById('stars-layer-compact');
+                if (!starsLayer) return;
+
+                const starCount = 30; // Fewer stars for compact header
+
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+
+                    // Random star size
+                    const starTypes = ['star-small', 'star-medium', 'star-large'];
+                    const randomType = starTypes[Math.floor(Math.random() * starTypes.length)];
+                    star.classList.add(randomType);
+
+                    // Random position
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+
+                    // Random animation delay
+                    star.style.animationDelay = Math.random() * 5 + 's';
+
+                    starsLayer.appendChild(star);
+                }
+            }
+
+            // Initialize space effects for compact pages
+            generateStarsCompact();
+
+            // Add space-themed console messages
+            console.log('🛰️ LEO-NET 2025: Satellite constellation active');
+            console.log('📡 Ground station: Signal acquired');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+---
+# this is an empty front matter
+---
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ site.data.conference.short_title }} {{ site.data.conference.year }} | ACM SIGCOMM {{
+        site.data.conference.year }}</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#site-nav">
+    {% include header.html %}
+
+    <section id="camera-ready" class="section registration" style="display: block;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">PUBLICATION INFORMATION</h3>
+                </div>
+            </div>
+
+            <p id="listing" align="justify">{{ site.data.camera_ready.intro }}</p>
+            <ulx class="list-arrow-right" style="font-weight: 100;">
+                {% for step in site.data.camera_ready.intro_steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ulx>
+            <br>
+
+            {% for section in site.data.camera_ready.sections %}
+            <p id="listing" align="justify"><b>{{ section.title }}</b></p>
+            <ulx class="list-arrow-right" style="font-weight: 100;">
+                {% for step in section.steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ulx>
+            <br>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+    <!-- import navigation bar and header -->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+</body>
+
+</html>
