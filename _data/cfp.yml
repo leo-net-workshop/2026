@@ -1,5 +1,5 @@
 intro:
-  - "<strong>LEO-NET 2025</strong> invites submissions from researchers and practitioners in academia and industry who are exploring the latest developments and open challenges in LEO satellite networks and communications."
+  - "<strong>LEO-NET 2026</strong> invites submissions from researchers and practitioners in academia and industry who are exploring the latest developments and open challenges in LEO satellite networks and communications."
   - "Low Earth Orbit (LEO) satellite communication and networking is a rapidly growing field with great potential for enabling new and innovative applications by providing low-latency, high-bandwidth Internet connectivity globally. Massive-scale LEO deployments from industrial players, such as Starlink, OneWeb, etc. have allowed wide-scale availability of LEO satellite network access globally but their network remains to operate as a black box."
   - "However, considering the state of LEO networking and constellation design is still in its infancy, we believe that the unique challenges posed by the inherently dynamic LEO satellite architectures, necessitate novel solutions in network architecture, protocol design, resource management, along with several other verticals."
   - "We also welcome work-in-progress and position papers that present new directions, highly original ideas, or have the potential to provoke insightful discussions during the workshop. Whether you're an expert or a newcomer to the field, we encourage you to join us and contribute to this exciting area of research."
@@ -15,6 +15,7 @@ topics:
   - "Interactions between LEO, MEO and GEO constellations"
   - "Interplay next-generation mobile (5G, 6G) and LEO networks"
   - "Mobile/Edge computing and IoT in space"
+  - "Compute in space"
   - "ML/AI for LEO satellites"
   - "Emerging applications for LEO networks"
   - "Performance measurements over LEO networks"
@@ -27,4 +28,4 @@ submission_guidelines:
   - "Accepted papers will be published in the SIGCOMM Workshop Proceedings, and available at the ACM Digital Library."
   - "You may find these <a href=\"https://www.acm.org/publications/proceedings-template\" target=\"_blank\">ACM templates</a> useful in complying with the above requirements. For LaTeX users, please use <code>\\documentclass[sigconf, 10pt, anonymous]{acmart}</code>."
 
-contact: 'If you have any questions regarding LEO-NET 2025, please contact us at <a href="mailto:n.mohan@tudelft.nl">n.mohan@tudelft.nl</a>'
+contact: 'If you have any questions regarding LEO-NET 2026, please contact us at <a href="mailto:n.mohan@tudelft.nl">n.mohan@tudelft.nl</a>'

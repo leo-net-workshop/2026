@@ -1,11 +1,11 @@
 intro: "LEO-NET has been bringing together researchers and practitioners to explore the challenges and opportunities in LEO satellite networking since 2023."
 
 editions:
-  # - year: 2025
-  #   ordinal: "third"
-  #   location: "Coimbra, Portugal"
-  #   url: "https://leo-net-workshop.github.io/2025/"
-  #   description: "The third workshop was held in conjunction with ACM SIGCOMM 2025."
+  - year: 2025
+    ordinal: "third"
+    location: "Coimbra, Portugal"
+    url: "https://leo-net-workshop.github.io/2025/"
+    description: "The third workshop marked LEO-NET's first collaboration with ACM SIGCOMM, expanding the workshop's reach to a broader networking audience. With a refreshed identity and over 60 participants, the event was a resounding success."
 
   - year: 2024
     ordinal: "second"

@@ -5,12 +5,12 @@ paragraphs:
 
   - "Overall, LEO-NET aims to open new avenues for networking researchers to explore different aspects of LEO constellation operation and performance and shape the state of LEO satellite communication. We see multiple strong verticals in LEO – understanding the operation and potential bottlenecks in rapidly growing LEO constellation offerings, novel network protocol extensions that leverage the highly dynamic LEO links, applications like satellite imagery and IoT, LEO compute, and several others. We expect strong submissions along all of these verticals addressing many open challenges across the stack."
 
-additional_info: "In addition to the regular papers, the program of LEO-NET 2025 will also include keynote and panel discussion including experts in LEO networking research."
+additional_info: "In addition to the regular papers, the program of LEO-NET 2026 will also include keynote and panel discussion including experts in LEO networking research."
 
 # Countdown timer configuration
-countdown_date: "2025-09-08T08:50:00+01:00" # Workshop starts at 08:50 on September 8th, 2025 in Coimbra, Portugal (WEST timezone)
+countdown_date: "2026-08-17T08:50:00+00:00" # Workshop on August 17th, 2026
 
 meta:
-  description: "The 3rd ACM Workshop on on LEO Networking and Communication, co-located with SIGCOMM 2025 (Coimbra, Portugal)."
-  keywords: "LEO-NET, LEO-NET2025, LEO-NET 2025, LEO, SIGCOMM, SIGCOMM 2025, low earth orbit, satellite, LEO satellite, satellite broadband, workshop, talks, research"
+  description: "The 4th ACM Workshop on LEO Networking and Communication, co-located with SIGCOMM 2026 (Denver, Colorado, USA)."
+  keywords: "LEO-NET, LEO-NET2026, LEO-NET 2026, LEO, SIGCOMM, SIGCOMM 2026, low earth orbit, satellite, LEO satellite, satellite broadband, workshop, talks, research"
   authors: "Nitinder Mohan, Deepak Vasisht, Debopam Bhattacherjee"
