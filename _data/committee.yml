@@ -1,4 +1,7 @@
 tpc:
+  - name: "Amitangshu Pal"
+    institution: "IIT Kanpur, India"
+    website: "https://www.cse.iitk.ac.in/users/amitangshu/"
   - name: "Ahmed Saeed"
     institution: "Georgia Tech, USA"
     website: "https://www.scs.gatech.edu/people/ahmed-saeed"
@@ -34,9 +37,6 @@ tpc:
     website: "https://lzq8272587.github.io/"
 
 # Pending acknowledgement:
-#   - name: "Amitangshu Pal"
-#     institution: "IIT Kanpur, India"
-#     website: "https://www.cse.iitk.ac.in/users/amitangshu/"
 #   - name: "Anna Brünstorm"
 #     institution: "Karlstadt University, Sweden"
 #     website: "https://www.kau.se/en/researchers/anna-brunstrom"
